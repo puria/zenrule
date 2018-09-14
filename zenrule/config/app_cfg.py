@@ -136,3 +136,26 @@ try:
     enable_debugbar(base_config)
 except ImportError:
     pass
+
+from tgext import webassets
+from webassets.filter import register_filter
+from dukpy.webassets import BabelJSX
+register_filter(BabelJSX)
+
+webassets.plugme(
+    base_config,
+    options={'babel_modules_loader': 'umd'},
+    bundles={
+        'bundle': webassets.Bundle(
+            'javascript/vendors/react-dom.production.min.js',
+            'javascript/vendors/react.production.min.js',
+            'javascript/vendors/bootstrap.min.js',
+            webassets.Bundle(
+                'javascript/jsx/**',
+                filters='babeljsx',
+            ),
+            filters='rjsmin',
+            output='assets/bundle.js'
+        )
+    }
+)

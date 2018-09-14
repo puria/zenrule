@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-"""Main Controller"""
 
 from tg import expose, flash, require, url, lurl
 from tg import request, redirect, tmpl_context
@@ -10,6 +9,7 @@ from zenrule import model
 from tgext.admin.mongo import BootstrapTGMongoAdminConfig as TGAdminConfig
 from tgext.admin.controller import AdminController
 
+from zenrule.controllers.rule import RuleController
 from zenrule.lib.base import BaseController
 from zenrule.controllers.error import ErrorController
 
@@ -17,21 +17,8 @@ __all__ = ['RootController']
 
 
 class RootController(BaseController):
-    """
-    The root controller for the zenrule application.
-
-    All the other controllers and WSGI applications should be mounted on this
-    controller. For example::
-
-        panel = ControlPanelController()
-        another_app = AnotherWSGIApplication()
-
-    Keep in mind that WSGI applications shouldn't be mounted directly: They
-    must be wrapped around with :class:`tg.controllers.WSGIAppController`.
-
-    """
     admin = AdminController(model, None, config_type=TGAdminConfig)
-
+    rules = RuleController()
     error = ErrorController()
 
     def _before(self, *args, **kw):
@@ -39,23 +26,10 @@ class RootController(BaseController):
 
     @expose('zenrule.templates.index')
     def index(self):
-        """Handle the front-page."""
         return dict(page='index')
-    @expose('zenrule.templates.index')
-    @require(predicates.has_permission('manage', msg=l_('Only for managers')))
-    def manage_permission_only(self, **kw):
-        """Illustrate how a page for managers only works."""
-        return dict(page='managers stuff')
-
-    @expose('zenrule.templates.index')
-    @require(predicates.is_user('editor', msg=l_('Only for the editor')))
-    def editor_user_only(self, **kw):
-        """Illustrate how a page exclusive for the editor works."""
-        return dict(page='editor stuff')
 
     @expose('zenrule.templates.login')
     def login(self, came_from=lurl('/'), failure=None, login=''):
-        """Start the user login."""
         if failure is not None:
             if failure == 'user-not-found':
                 flash(_('User not found'), 'error')
@@ -71,11 +45,6 @@ class RootController(BaseController):
 
     @expose()
     def post_login(self, came_from=lurl('/')):
-        """
-        Redirect the user to the initially requested page on successful
-        authentication or redirect her back to the login page if login failed.
-
-        """
         if not request.identity:
             login_counter = request.environ.get('repoze.who.logins', 0) + 1
             redirect('/login',

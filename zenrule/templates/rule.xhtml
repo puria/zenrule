@@ -1,0 +1,33 @@
+<html py:extends="master.xhtml" py:strip="True">
+    <head py:block="head" py:strip="True">
+        <title py:block="master_title">Rules</title>
+    </head>
+
+    <body py:block="body" py:strip="True">
+      <div class="row">
+        <div class="col-md-12">
+          <h2>Rules</h2>
+            <div class="col">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead class="thead-light">
+                            <tr>
+                                <th>ID</th>
+                                <th>name</th>
+                                <th>content</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr py:for="rule in rules">
+                                <td>${rule._id}</td>
+                                <td>${rule.name}</td>
+                                <td><pre>${rule.content}</pre></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+      </div>
+    </body>
+</html>

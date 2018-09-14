@@ -16,5 +16,6 @@ def init_model(engine):
 
 # Import your model modules here.
 from zenrule.model.auth import User, Group, Permission
+from zenrule.model.rule import Rule
 
-__all__ = ('User', 'Group', 'Permission')
+__all__ = ('User', 'Group', 'Permission', Rule)
