@@ -15,6 +15,7 @@ Zenroom and Zenrule are software in **ALPHA stage** and are part of the [DECODE 
 * [Notes](#memo-notes)
 * [Troubleshooting & debugging](#bug-troubleshooting--debugging)
 * [Acknowledgements](#heart_eyes-acknowledgements)
+* [Contributing](#busts_in_silhouette-contributing)
 * [License](#briefcase-license)
 </details>
 
@@ -102,6 +103,18 @@ Designed, written and maintained by Puria Nafisi Azizi.
 <img src="https://zenroom.dyne.org/img/ec_logo.png" class="pic" alt="Project funded by the European Commission">
 
 This project is receiving funding from the European Union’s Horizon 2020 research and innovation programme under grant agreement nr. 732546 (DECODE).
+
+***
+## :busts_in_silhouette: Contributing
+
+Please first take a look at the [Dyne.org - Contributor License Agreement](CONTRIBUTING.md) then
+
+1. [FORK IT](https://github.com/puria/zenrule/fork)
+1. Create your feature branch (git checkout -b feature/branch)
+1. Commit your changes (git commit -am 'Add some fooBar')
+1. Push to the branch (git push origin feature/branch)
+1. Create a new Pull Request
+1. Thank you
 
 ***
 ## :briefcase: License
