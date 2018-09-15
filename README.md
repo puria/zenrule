@@ -1,5 +1,5 @@
 # Zenrule
-![Dyne.org](https://img.shields.io/badge/%3C%2F%3E%20with%20%E2%9D%A4%20by-Dyne.org-blue.svg)
+![https://dyne.org](https://img.shields.io/badge/%3C%2F%3E%20with%20%E2%9D%A4%20by-Dyne.org-blue.svg)
 
 Zenrule is a registry of smart rules/smart contracts written in natural English language. It also behave as an restful API
 server.
@@ -110,9 +110,9 @@ This project is receiving funding from the European Union’s Horizon 2020 resea
 Please first take a look at the [Dyne.org - Contributor License Agreement](CONTRIBUTING.md) then
 
 1. [FORK IT](https://github.com/puria/zenrule/fork)
-1. Create your feature branch (git checkout -b feature/branch)
-1. Commit your changes (git commit -am 'Add some fooBar')
-1. Push to the branch (git push origin feature/branch)
+1. Create your feature branch `git checkout -b feature/branch`
+1. Commit your changes `git commit -am 'Add some fooBar'`
+1. Push to the branch `git push origin feature/branch`
 1. Create a new Pull Request
 1. Thank you
 
