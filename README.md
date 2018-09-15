@@ -1,5 +1,5 @@
 # Zenrule
-![https://dyne.org](https://img.shields.io/badge/%3C%2F%3E%20with%20%E2%9D%A4%20by-Dyne.org-blue.svg)
+[![https://dyne.org](https://img.shields.io/badge/%3C%2F%3E%20with%20%E2%9D%A4%20by-Dyne.org-blue.svg)](https://dyne.org)
 
 Zenrule is a registry of smart rules/smart contracts written in natural English language. It also behave as an restful API
 server.
