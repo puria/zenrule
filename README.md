@@ -1,7 +1,7 @@
 # Zenrule
 ![Dyne.org](https://img.shields.io/badge/%3C%2F%3E%20with%20%E2%9D%A4%20by-Dyne.org-blue.svg)
 
-Zenrule is a registry of smart rules written in natural English language. It also behave as an API
+Zenrule is a registry of smart rules/smart contracts written in natural English language. It also behave as an restful API
 server.
 
 Zenroom and Zenrule are software in **ALPHA stage** and are part of the [DECODE project](https://decodeproject.eu) about data-ownership and [technological sovereignty](https://www.youtube.com/watch?v=RvBRbwBm_nQ). Our effort is that of improving people's awareness of how their data is processed by algorithms, as well facilitate the work of developers to create along [privacy by design principles](https://decodeproject.eu/publications/privacy-design-strategies-decode-architecture) using algorithms that can be deployed in any situation without any change.
@@ -27,7 +27,15 @@ Checkout the project
 Make and compile the zenroom modules:
 
     cd  zenrule/zenrule/lib/zenroom
+
+:apple:
+
     make osx-python
+    cd -
+
+:penguin:
+
+    make linux-python
     cd -
 
 Activate or create your virtualenv up to you and then:
@@ -39,16 +47,39 @@ Activate or create your virtualenv up to you and then:
 ***
 ## :video_game: Usage
 
-To run the webapp just run:
+To run the webapp and the API server just run:
 
     gearbox serve
 
 and head your browser to `http://localhost:8080`
 
+### :shell: Restful JSON API 
+
+Once the server is up and running you can query the API server (JSON over HTTP and Restful).
+
+#### `/rules/list => [{_id, name, content}]`
+Returns all the available smart rules in the system
+
+#### `/rules/post {name, content} => _id`
+Creates a new rule and return the ObjectId of the new entity
+
+#### `/rules/put {_id, [name, content]}`
+Edit a given smart rule with new values
+
+#### `/rules/delete {_id}`
+Deletes a smart rule by it's `_id`
+
+
 ***
 ## :wrench: Configuration
 
-The conf files are `development.ini` and `test.ini` not any particular configuration as per now
+The conf files are `development.ini` and `test.ini`.
+
+The most effective way is to edit the file and tweak stuff. Salient info are reported below.
+
+### :leaves: MongoDB 
+
+The url of the database connection is `ming.url` find it in `development.ini` and change it per your needs.
 
 ***
 ## :memo: Notes
