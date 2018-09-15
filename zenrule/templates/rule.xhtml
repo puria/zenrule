@@ -8,24 +8,13 @@
         <div class="col-md-12">
           <h2>Rules</h2>
             <div class="col">
-                <div class="table-responsive">
-                    <table class="table table-hover">
-                        <thead class="thead-light">
-                            <tr>
-                                <th>ID</th>
-                                <th>name</th>
-                                <th>content</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr py:for="rule in rules">
-                                <td>${rule._id}</td>
-                                <td>${rule.name}</td>
-                                <td><pre>${rule.content}</pre></td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <div py:for="rule in rules">
+                    <h2>${rule.name} <small>${rule._id}</small>
+                    <a class="btn btn-success btn-xs" href="${tg.url('/rules/run', params={'_id': rule._id})}">run</a>
+                    </h2>
+                    <pre>${rule.content}</pre>
                 </div>
+                <hr/>
             </div>
         </div>
       </div>

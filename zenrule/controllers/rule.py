@@ -4,6 +4,7 @@ from tg import expose, decode_params, RestController, validate
 from tw2.core import StringLengthValidator
 
 from zenrule.lib.validator import RuleValidator
+from zenrule.lib.zenroom.zenroom import zenroom_exec
 from zenrule.model import Rule
 
 
@@ -53,5 +54,14 @@ class RuleController(RestController):
         Rule.query.remove({'_id': ObjectId(_id)})
         return dict()
 
-    def run(self, _id, data):
-        pass
+    @expose('json')
+    def run(self, _id):
+        a = zenroom_exec("""
+            hello = str("Hello World!")
+            print(hello:string())
+        """, None, None, None, 1)
+
+        print(a)
+        print(dir(a))
+
+        return dict()
